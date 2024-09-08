@@ -1,24 +1,26 @@
-
-
-
-
-
 import Home from "./components/Home";
 import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import "./index.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <div className="">
-      <Router>
+<Toaster position="top-center" reverseOrder={false} />
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+        {/* <Route path="/" element={<ProtectedRoute />}>
+          <Route index element={<Home />} />
+        </Route> */}
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Home />} />
+
+        
         </Routes>
-      </Router>
+
     </div>
   );
 };
